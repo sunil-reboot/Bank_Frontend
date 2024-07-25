@@ -1,0 +1,189 @@
+/* Navbar.css */
+
+/* General styles for the navbar */
+.navbar {
+  padding: 0.5rem 1rem; /* Decreased padding to reduce height */
+  background-color: #064e04; 
+  color: #000; /* Text color */
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-left: 0.5rem; /* Adjust spacing between menu button and home link */
+}
+
+.nav-link {
+  color: #ffffff;
+  font-weight: bold;
+  padding: 0.5rem 1rem; /* Adjust padding for menu items */
+  text-decoration: none; /* Remove default underline */
+}
+
+.nav-link.active,
+.nav-link:visited {
+  color: #ffffff; /* Keep font color white after clicking */
+}
+
+.nav-link:hover {
+  color: #ffffff; /* Ensure font color stays white on hover */
+  text-decoration: underline; /* Underline on hover */
+}
+
+.navbar-toggler {
+  border: none;
+  background-color: transparent;
+  padding: 0.25rem 0.75rem;
+  font-size: 1.5rem;
+  color: #000;
+  margin-right: auto; /* Move the menu button to the extreme left */
+}
+
+.navbar-toggler-icon {
+  width: 1.5em;
+  height: 1.5em;
+  background: transparent;
+  border: none;
+  display: inline-block;
+  text-align: center;
+  line-height: 1.5em;
+  position: relative;
+}
+
+.navbar-toggler-icon:before {
+  content: '\2630';
+  font-size: 1.5em;
+  line-height: 1.5em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000;
+}
+
+.btc-rate-container {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.btc-rate {
+  margin-right: 5px;
+  color: #064e04;
+}
+
+.navbar-collapse {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #006a4d; 
+  padding-top: 60px;
+  transition: 0.3s;
+  z-index: 9999;
+  display: none;
+}
+
+.sidebar.open {
+  left: 0;
+  display: block;
+}
+
+.sidebar .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 30px;
+  color: #000;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.sidebar .nav-link {
+  color: #000;
+  padding: 10px 15px;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #064e04; /* Slightly darker yellow for hover */
+  color: #fff;
+}
+
+.sidebar .btn {
+  color: #000;
+  background: none;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.sidebar .btn:hover {
+  background-color: #064e04; /* Slightly darker yellow for hover */
+  color: #fff;
+}
+
+.rules-container {
+  background-color: #babeb9;
+  color: black;
+  margin-top: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid white; /* Added white border */
+}
+
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes shining {
+  100% { color: rgb(0, 0, 0); }
+}
+
+.mobile-number {
+  font-weight: bold;
+  text-align: left;
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px 15px; /* Adjust padding to match other <li> elements */
+  list-style-type: none; /* Ensure it looks like other <li> elements */
+  border-bottom: 1px solid #000000; /* Optional: add a border for separation */
+}
+
+.footer-message {
+  text-align: center;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  color: red;
+}
+
+.dropdown-item {
+  color: #000000; /* Keep dropdown items black */
+  text-decoration: none; /* Remove default underline */
+}
+
+.dropdown-item:hover {
+  color: #000000; /* Keep dropdown items black on hover */
+  text-decoration: underline; /* Underline on hover */
+}
