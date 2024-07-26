@@ -30,7 +30,7 @@ export default function Profile() {
   };
 
   useEffect(() => {
-    fetch('https://exchange-btc.in:8080/getPhoneNumber', {
+    fetch('http://localhost:8080/getPhoneNumber', {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('authToken')}`
@@ -50,7 +50,7 @@ export default function Profile() {
     e.preventDefault();
 
     // Check old password
-    fetch('https://exchange-btc.in:8080/checkOldPassword', {
+    fetch('http://localhost:8080/checkOldPassword', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ export default function Profile() {
           alert('Invalid old password. Please re-enter.');
         } else if (validatePasswords()) {
           // Update password
-          fetch('https://exchange-btc.in:8080/updatePassword', {
+          fetch('http://localhost:8080/updatePassword', {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',

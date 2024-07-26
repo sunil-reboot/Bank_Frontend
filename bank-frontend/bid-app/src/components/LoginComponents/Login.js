@@ -23,7 +23,7 @@ const Login = () => {
 
     const loginUser = (e) => {
         e.preventDefault();
-        axios.post('https://exchange-btc.in:8080/api/client/auth/login/', credentials)
+        axios.post('http://localhost:8080/api/client/auth/login/', credentials)
             .then(response => {
                 if (response.data.status === 'failed') {
                     alert(response.data.message);

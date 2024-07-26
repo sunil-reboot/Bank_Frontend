@@ -14,12 +14,12 @@ import ConfigureBtcRate from './components/Cashier/ConfigureBtcRate';
 import Login from './components/LoginComponents/Login';
 import Home from './components/LoginComponents/Home';
 import ChangePassword from './components/PasswordComponents/ChangePassword';
-import Register from './components/RegisterComponent/Register';
 import CashierPayment from './components/Cashier/CashierPayment';
 import DisplayAllUsers from './components/Cashier/DisplayAllUsers';
 import NominatedUsers from './components/NominateUsers/NominatedUsers';
-import NomineesSuggestions from './components/NominateUsers/NomineesSuggestions';
+import NomineeSuggestions from './components/NominateUsers/NomineeSuggestions';
 import NominateUser from './components/NominateUsers/NominateUser';
+import InvestmentsPlans from './components/Investments/InvestmentsPlans';
 
 
 
@@ -59,7 +59,10 @@ function App() {
 
         <Route exact path = '/nominate-user' element = {<NominateUser/>}></Route>
         <Route exact path = '/nominated-users' element = {<NominatedUsers/>}></Route>
-        <Route exact path = '/nominees-suggestions' element = {<NomineesSuggestions/>}></Route>
+
+        <Route path='/nomineeSuggestions/:id' element={<NomineeSuggestions />} />
+
+        <Route exact path = '/investments-plans' element = {<InvestmentsPlans/>}></Route>
 
         <Route path="/" element={<Login />} />
         <Route path="/home" element={<Home />} />

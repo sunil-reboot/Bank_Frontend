@@ -14,7 +14,7 @@ export default function WithdrawBtc() {
 
   useEffect(() => {
     // Fetch available BTC quantity when the component mounts
-    fetch('https://exchange-btc.in:8080/getAvailableBtcQty', {
+    fetch('http://localhost:8080/getAvailableBtcQty', {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('authToken')}`
@@ -31,7 +31,7 @@ export default function WithdrawBtc() {
     // Fetch user bank details when the component mounts
     const phoneNumber = localStorage.getItem('authToken');
     if (phoneNumber) {
-      fetch(`https://exchange-btc.in:8080/getThisUserBankDetails`, {
+      fetch(`http://localhost:8080/getThisUserBankDetails`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('authToken')}`
@@ -85,7 +85,7 @@ export default function WithdrawBtc() {
     if (isWithdrawButtonEnabled()) {
       if (!toggleEnabled) {
         // Call API to deactivate bank details
-        fetch('https://exchange-btc.in:8080/deactivateBankDetails', {
+        fetch('http://localhost:8080/deactivateBankDetails', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -105,7 +105,7 @@ export default function WithdrawBtc() {
         const updatedBankDetails = { ...bankDetails, isActive: true };
 
         // Proceed with normal withdrawal
-        fetch('https://exchange-btc.in:8080/saveBtcWithdrawRecords', {
+        fetch('http://localhost:8080/saveBtcWithdrawRecords', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -132,7 +132,7 @@ export default function WithdrawBtc() {
 
     if (!newToggleState) {
       // Call API to deactivate bank details
-      fetch('https://exchange-btc.in:8080/deactivateBankDetails', {
+      fetch('http://localhost:8080/deactivateBankDetails', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

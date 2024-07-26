@@ -23,7 +23,7 @@ const Register = () => {
 
     const registerUser = (e) => {
         e.preventDefault();
-        axios.post('https://exchange-btc.in:8080/api/client/auth/register/', {
+        axios.post('http://localhost:8080/api/client/auth/register/', {
             name: user.name,
             password: user.password,
             phoneNumber: user.phoneNumber,

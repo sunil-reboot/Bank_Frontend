@@ -8,7 +8,7 @@ export default function Scanner() {
         const fetchLatestImage = async () => {
             try {
                 // Fetch the latest image URL
-                const urlResponse = await axios.get('https://exchange-btc.in:8080/image/latest', {
+                const urlResponse = await axios.get('http://localhost:8080/image/latest', {
                     headers: {
                         'Authorization': `Bearer ${localStorage.getItem('authToken')}`
                     }
@@ -19,7 +19,7 @@ export default function Scanner() {
                 const key = s3Url.split('/').slice(3).join('/'); // Adjust this based on your URL structure
 
                 // Fetch the image from the backend using the key
-                const imageResponse = await axios.get(`https://exchange-btc.in:8080/image/${key}`, {
+                const imageResponse = await axios.get(`http://localhost:8080/image/${key}`, {
                     responseType: 'blob',
                     headers: {
                         'Authorization': `Bearer ${localStorage.getItem('authToken')}`

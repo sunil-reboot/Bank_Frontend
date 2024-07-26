@@ -5,11 +5,9 @@ import './Navbar.css'; // Import the CSS file
 export default function Navbar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const isAuthenticated = localStorage.getItem('isAuthenticated');
-  const [btcRate, setBtcRate] = useState(null);
   const [btcQty, setBtcQty] = useState(null);
   const [mobile, setMobile] = useState(localStorage.getItem('mobile'));
   const [username, setUsername] = useState(localStorage.getItem('usersName')); // State for username
-  const [showBankDetailsWarning, setShowBankDetailsWarning] = useState(false);
   let isUserOrAdmin = false;
   let isCashierOrAdmin = false;
 
@@ -23,71 +21,21 @@ export default function Navbar() {
     localStorage.removeItem('roles');
     localStorage.removeItem('mobile');
     localStorage.removeItem('usersName');
-    window.location = '/login';
+    window.location = '/';
   };
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  const fetchLatestBtcRate = () => {
-    fetch('https://exchange-btc.in:8080/getCurrentBtcRate', {
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('authToken')}`,
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setBtcRate(data.btcRate);
-      })
-      .catch((error) => {
-        console.error('Error fetching BTC rate:', error);
-      });
-  };
-
-  useEffect(() => {
-    fetch('https://exchange-btc.in:8080/getAvailableBtcQty', {
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('authToken')}`
-      }
-    })
-      .then(response => response.json())
-      .then(data => {
-        setBtcQty(data);
-      })
-      .catch(error => {
-        console.error('Error fetching BTC quantity:', error);
-      });
-
-    fetchLatestBtcRate();
-  }, []);
-
   useEffect(() => {
     setMobile(localStorage.getItem('mobile'));
     setUsername(localStorage.getItem('usersName')); // Update username state
   }, [isAuthenticated]);
 
-  useEffect(() => {
-    fetch('https://exchange-btc.in:8080/getUserBankDetails', {
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('authToken')}`
-      }
-    })
-      .then(response => response.json())
-      .then(data => {
-        setShowBankDetailsWarning(data);
-      })
-      .catch(error => {
-        console.error('Error fetching latest approved or rejected records:', error);
-      });
-  }, []);
-
   return (
     <>
+    <Navbar/>
       <nav className="navbar navbar-expand-lg text-dark">
         <div className="container-fluid">
           <button className="navbar-toggler" type="button" onClick={toggleSidebar} aria-label="Toggle navigation">
@@ -120,7 +68,7 @@ export default function Navbar() {
                           Investments
                         </a>
                         <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <li><a className="dropdown-item" href="/withdraw-btc">Investment Plans</a></li>
+                          <li><a className="dropdown-item" href="/investments-plans">Investment Plans</a></li>
                           <li><a className="dropdown-item" href="#">Fixed Term Deposit.</a></li>
                           <li><a className="dropdown-item" href="#">Mutual Funds</a></li>
                           <li><a className="dropdown-item" href="#">ETF</a></li>
@@ -197,7 +145,7 @@ export default function Navbar() {
       </nav>
       {/* Footer Message */}
       <footer className="footer-message">
-        Investments are based on person risk. We do not guarantee the returns provided but we try our best to reach the goals. 
+      Investments are subject to your own risk apetite, read all scheme related documents carefully. 
       </footer>
     </>
   );

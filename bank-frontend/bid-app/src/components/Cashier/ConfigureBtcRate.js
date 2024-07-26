@@ -11,7 +11,7 @@ export default function ConfigureBtcRate() {
   }, []);
 
   const fetchLatestBtcRate = () => {
-    fetch('https://exchange-btc.in:8080/getCurrentBtcRate', {
+    fetch('http://localhost:8080/getCurrentBtcRate', {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('authToken')}`,
@@ -48,7 +48,7 @@ export default function ConfigureBtcRate() {
     }
 
     try {
-      const response = await fetch('https://exchange-btc.in:8080/configureBtcRate', {
+      const response = await fetch('http://localhost:8080/configureBtcRate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

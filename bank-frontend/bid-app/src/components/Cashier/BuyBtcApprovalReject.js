@@ -10,7 +10,7 @@ export default function BuyBtcApprovalReject() {
 
   const fetchData = () => {
     setLoading(true);
-    fetch('https://exchange-btc.in:8080/getApprovalRecords', {
+    fetch('http://localhost:8080/getApprovalRecords', {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('authToken')}`
       }
@@ -32,7 +32,7 @@ export default function BuyBtcApprovalReject() {
     const names = {};
     data.forEach(item => {
       const phoneNumber = item.phoneNumber;
-      fetch(`https://exchange-btc.in:8080/getPersonName?phoneNumber=${encodeURIComponent(phoneNumber)}`, {
+      fetch(`http://localhost:8080/getPersonName?phoneNumber=${encodeURIComponent(phoneNumber)}`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('authToken')}`
         }
@@ -75,7 +75,7 @@ export default function BuyBtcApprovalReject() {
       return;
     }
 
-    fetch('https://exchange-btc.in:8080/approveOrRejectBtc', {
+    fetch('http://localhost:8080/approveOrRejectBtc', {
       method: 'PUT',
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('authToken')}`,
