@@ -34,7 +34,7 @@ const Login = () => {
                     localStorage.setItem('mobile', JSON.stringify(response.data.mobilesNo));
                     localStorage.setItem('usersName', JSON.stringify(response.data.usersName));
                     setUsername(response.data.usersName); // Set username state
-                    window.location.href = "/rules";
+                    window.location.href = "/";
                 }
             })
             .catch(error => {

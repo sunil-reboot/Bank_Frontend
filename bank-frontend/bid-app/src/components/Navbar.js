@@ -35,7 +35,6 @@ export default function Navbar() {
 
   return (
     <>
-    <Navbar/>
       <nav className="navbar navbar-expand-lg text-dark">
         <div className="container-fluid">
           <button className="navbar-toggler" type="button" onClick={toggleSidebar} aria-label="Toggle navigation">
@@ -69,14 +68,14 @@ export default function Navbar() {
                         </a>
                         <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                           <li><a className="dropdown-item" href="/investments-plans">Investment Plans</a></li>
-                          <li><a className="dropdown-item" href="#">Fixed Term Deposit.</a></li>
+                          <li><a className="dropdown-item" href="#">Fixed Term Deposit</a></li>
                           <li><a className="dropdown-item" href="#">Mutual Funds</a></li>
                           <li><a className="dropdown-item" href="#">ETF</a></li>
                           <li><a className="dropdown-item" href="#">Invested Funds</a></li>
                         </ul>
                       </li>
 
-                      {/* loans   */}
+                      {/* Loans */}
                       <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Loans
@@ -88,7 +87,7 @@ export default function Navbar() {
                         </ul>
                       </li>
 
-                      {/* DASHBOARD */}
+                      {/* Dashboards */}
                       <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Dashboards
@@ -100,9 +99,7 @@ export default function Navbar() {
                         </ul>
                       </li>
 
-                      {/* <li className="nav-item">
-                        <Link className="nav-link active" to="/profile">Nominate Users</Link>
-                      </li> */}
+                      {/* Nominate Users */}
                       <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Nominate Users
@@ -113,7 +110,6 @@ export default function Navbar() {
                           <li><a className="dropdown-item" href="/nominees-suggestions">Suggestions By Users</a></li>
                         </ul>
                       </li>
-
                     </>
                   )}
                   <li className="nav-item">
@@ -145,7 +141,7 @@ export default function Navbar() {
       </nav>
       {/* Footer Message */}
       <footer className="footer-message">
-      Investments are subject to your own risk apetite, read all scheme related documents carefully. 
+        Investments are subject to your own risk appetite; read all scheme-related documents carefully.
       </footer>
     </>
   );
